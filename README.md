@@ -24,8 +24,6 @@ Set the parameters according to the instructions in shollAnalysis.py and execute
 # Usage in Papers
 When using this program in papers or other publications, please make sure to include this GitHub URL and the date of downloading the file in the references section (to ensure reproducibility even with different versions).
 
-[1] Sholl, D. A. (1953). Dendritic organization in the neurons of the visual and motor cortices of the cat. Journal of anatomy, 87(4), 387.
-
 # 概要
 Sholl Analysisは1953年にShollによって提案された[1]神経細胞の形態分析手法で、今年まで多くの論文で使用されている。具体的には細胞体を中心として一定間隔で同心円状に線を引き、その線と神経突起が交わった点をintersectionとして数える方法である。細胞体からの距離を横軸、intersectionの数を縦軸に取ると、概ね突起が分岐すると右上がりのグラフになり、突起の終端を迎えると右下がりのグラフになる。  
 古くは手作業で数えていたが、近年ではImageJ Fijiのプラグインなどのプログラムで測定される場合が多い。しかし、これらのプログラムでは取得した画像を2値化する必要があり、organoidやなどにおいて突起の数が著しく多い場合や、突起の明るさにばらつきがある場合などでは測定が難しかった。そこで、同心円上の位置を横軸、輝度を縦軸に取り、Savitzky–Golay filterによって数値微分し、ピークピッキングによって本数を数えるプログラムを考案した。従来の2値化を必要とするアルゴリズムに比べ、輝度の低い軸索や重なっている軸索も正確にカウントすることができる。  
