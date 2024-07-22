@@ -199,6 +199,8 @@ def shollAnalysis(tifFileName, pixelSize, centerX = -1, centerY = -1):
     # また、自分にアサインされている外側の円の点の数を保存。
     lastC = None    # 外側の円を保存しておく
     for c in reversed(axisListEachCircle):
+        if len(c) == 0: # 途中で神経突起が検出されない円があっても、スキップする
+            continue
         if lastC is None:
             lastC = c
             continue
